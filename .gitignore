@@ -1,0 +1,64 @@
+# Byte-code / caches
+__pycache__/
+*.py[cod]
+*.pyc
+.pytest_cache/
+.ruff_cache/
+.mypy_cache/
+.venv/
+venv/
+env/
+.python-version
+*.egg-info/
+build/
+dist/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Editors / IDE
+.idea/
+.vscode/
+
+# Model / data artifacts — NEVER commit these to this repo.
+# Derived data lives in ~/projects/xai-model-autopsy-workdir/.
+*.npy
+*.npz
+*.pt
+*.pth
+*.ckpt
+*.h5
+*.hdf5
+*.parquet
+*.zarr
+*.lmdb
+*.feather
+*.ndpi
+*.svs
+*.tif
+*.tiff
+
+# Any data/ path anywhere in the tree.
+data/
+**/data/
+
+# Images: block everywhere EXCEPT the curated figures/ directory.
+*.png
+*.jpg
+*.jpeg
+!figures/**/*.png
+!figures/**/*.jpg
+!figures/**/*.jpeg
+
+# Logs / TensorBoard
+*.log
+lightning_logs/
+tb_logs/
+wandb/
+mlruns/
+
+# Env / secrets
+.env
+.env.*
+*.pem
