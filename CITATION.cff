@@ -1,0 +1,9 @@
+cff-version: 1.2.0
+message: "If you reference this repository, please cite as below."
+title: "xai-model-autopsy: an XAI diagnosis of a two-neuron BCE coupling defect in a histopathology classifier"
+authors:
+  - family-names: Burckhardt
+    given-names: Anton
+type: software
+license: MIT
+repository-code: "https://github.com/bantonb/xai-model-autopsy"
