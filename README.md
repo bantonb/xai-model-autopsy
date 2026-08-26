@@ -40,7 +40,7 @@ uv venv && source .venv/bin/activate && uv pip install -e . && python -m defect_
 ## What this repo is about
 
 I trained a ConvNeXt-Small patch classifier on schwannoma and
-neurofibroma whole-slide images (`.ndpi`) for my bachelor's thesis.
+neurofibroma whole-slide images (`.ndpi`) for my bachelor's thesis in 01.2025.
 Thesis corpus: 371 WSIs (~27 GB) — 144 neurofibroma / 189 schwannoma
 / 38 hybrid, from 30 / 28 / 15 individuals (numbers per the thesis;
 this machine holds a subset). Training patches: ~3.13M at 224×224
