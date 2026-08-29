@@ -2,6 +2,8 @@
 
 *When 0.96 F1 means nothing: an XAI autopsy of a histopathology classifier.*
 
+[![ci](https://github.com/bantonb/xai-model-autopsy/actions/workflows/ci.yml/badge.svg?branch=main)](https://github.com/bantonb/xai-model-autopsy/actions/workflows/ci.yml)
+
 > Metrics said this histopathology classifier worked; explainability
 > methods proved it couldn't — this repository documents the diagnosis,
 > the fix, and the verified difference.
@@ -325,7 +327,7 @@ Real-data reproduction, if you have the archive:
 
 ```bash
 python -m pipeline.extract           # ~1h 47m on M2
-python -m pipeline.embed             # ~10h 46m on M2 (num_workers=0 is the bottleneck)
+python -m pipeline.embed             # ~30–60 min on M2 (was 10h 46m before commit 305530f fixed the num_workers=0 DataLoader bottleneck)
 python -m pipeline.train             # ~90 s on cached embeddings
 python -m pipeline.diagnose          # ~10 min (includes Occlusion)
 python -m pipeline.mirror_metric     # ~5 min
