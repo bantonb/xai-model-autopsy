@@ -88,7 +88,8 @@ def run(workdir: Path, batch_size: int = 64, device_str: str | None = None) -> P
     ds = _PatchDataset(rows)
     dl = DataLoader(
         ds, batch_size=batch_size, shuffle=False,
-        num_workers=0, pin_memory=(device.type == "cuda"),
+        num_workers=4, persistent_workers=True,
+        pin_memory=(device.type == "cuda"),
     )
 
     out = np.zeros((len(rows), FEATURE_DIM), dtype=np.float32)
