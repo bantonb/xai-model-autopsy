@@ -327,7 +327,7 @@ Real-data reproduction, if you have the archive:
 
 ```bash
 python -m pipeline.extract           # ~1h 47m on M2
-python -m pipeline.embed             # ~30–60 min on M2 (was 10h 46m before commit 305530f fixed the num_workers=0 DataLoader bottleneck)
+python -m pipeline.embed             # ~30–60 min on M2 (was 10h 46m before commit d0b2c78 fixed the num_workers=0 DataLoader bottleneck)
 python -m pipeline.train             # ~90 s on cached embeddings
 python -m pipeline.diagnose          # ~10 min (includes Occlusion)
 python -m pipeline.mirror_metric     # ~5 min

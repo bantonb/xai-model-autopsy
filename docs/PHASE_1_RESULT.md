@@ -138,7 +138,7 @@ serially on the main thread and became the bottleneck; MPS itself sat
 idle most of the time. Reproducibility not affected — same seeded run
 would yield the same numbers on any hardware.
 
-**Fixed in commit `305530f`** (`num_workers=4`, `persistent_workers=True`
+**Fixed in commit `d0b2c78`** (`num_workers=4`, `persistent_workers=True`
 in `pipeline/embed.py`). The 10h46m figure above is the pre-fix
 historical runtime; a from-scratch rerun on the same M2 should now
 finish in the expected 30–60 min range. Not re-run here because the
@@ -308,7 +308,7 @@ was turned after seeing the numbers.**
 - **Embedding was 25x slower than estimated** (2 patches/s vs ~50
   patches/s expected on MPS). Root cause: `num_workers=0` DataLoader in
   `pipeline.embed._PatchDataset` made image decoding the bottleneck.
-  **Fixed in commit `305530f`** (`num_workers=4`,
+  **Fixed in commit `d0b2c78`** (`num_workers=4`,
   `persistent_workers=True`); a from-scratch rerun on the same M2 should
   now finish in the expected 30–60 min range. Not re-run here because
   embeddings are cached and seed-deterministic.
@@ -367,7 +367,7 @@ was turned after seeing the numbers.**
   the workdir if someone copies it out.
 - **Rerun of embedding with `num_workers>0`** to recover the projected
   15-25 min runtime. Not needed for the current findings; noted for
-  anyone extending the work. (Code fix landed in commit `305530f`; a
+  anyone extending the work. (Code fix landed in commit `d0b2c78`; a
   from-scratch rerun would confirm the projected runtime.)
 
 ---
