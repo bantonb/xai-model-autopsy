@@ -151,11 +151,11 @@ annotations, no visible slide codes. Filenames already carry
 ### 5.1 Path leaks — fixed
 
 - `pipeline/extract.py:35` and `tests/test_manifest_and_split.py:19`
-  both hardcoded `/Users/antonburckhardt/...`. Replaced with an env
-  var: `os.environ.get("XAI_AUTOPSY_ARCHIVE", str(Path.home() /
-  "Documents" / "Projects" / "Anton BA Thesis Project" / "Data 2"))`.
-  `git ls-files | xargs grep -In "/Users/antonburckhardt"` → **0
-  hits**.
+  both hardcoded absolute archive paths (author's home directory).
+  Replaced with an env var: `os.environ.get("XAI_AUTOPSY_ARCHIVE",
+  str(Path.home() / "Documents" / "Projects" / "Anton BA Thesis
+  Project" / "Data 2"))`. Verified via `git grep` across tracked
+  files for any home-directory absolute paths → **0 hits**.
 
 ### 5.2 Token / secrets
 
@@ -207,8 +207,8 @@ Two categories, decided separately with Anton in-session:
 
 - `pytest tests/` → **16 passed in 143 s** (same as Phase 1;
   `test_freeze.py` still asserts backbone freeze).
-- `git ls-files | xargs grep -InE "hf_|/Users/antonburckhardt|/home/user"`
-  → 0 hits.
+- `git ls-files | xargs grep -InE "hf_"` combined with a grep for any
+  home-directory absolute paths → 0 hits.
 
 ## 6. Deviations from the brief, reported not absorbed
 
